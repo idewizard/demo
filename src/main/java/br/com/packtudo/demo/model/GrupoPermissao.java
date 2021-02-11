@@ -22,7 +22,7 @@ public class GrupoPermissao implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="cod_grupo_permissao")
-	private Integer codGrupoPermissao;
+	private byte codGrupoPermissao;
 
 	@Column(name="data_hora_inclusao")
 	private Timestamp dataHoraInclusao;

@@ -21,7 +21,7 @@ public class StatusChamado implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="cod_status_chamado")
-	private Integer codStatusChamado;
+	private byte codStatusChamado;
 
 	@Column(name="desc_status_chamado")
 	private String descStatusChamado;

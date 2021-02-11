@@ -24,7 +24,7 @@ public class Usuario implements Serializable {
 	private Integer idUsuario;
 
 	@Column(name="bol_ativo")
-	private Integer bolAtivo;
+	private byte bolAtivo;
 
 	@Column(name="data_hora_inclusao")
 	private Timestamp dataHoraInclusao;
