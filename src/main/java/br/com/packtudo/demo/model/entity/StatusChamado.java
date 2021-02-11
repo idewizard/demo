@@ -1,4 +1,4 @@
-package br.com.packtudo.demo.model;
+package br.com.packtudo.demo.model.entity;
 
 import lombok.Data;
 
