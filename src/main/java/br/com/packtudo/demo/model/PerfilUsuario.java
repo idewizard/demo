@@ -1,5 +1,7 @@
 package br.com.packtudo.demo.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -9,6 +11,7 @@ import java.sql.Timestamp;
  * The persistent class for the perfil_usuario database table.
  * 
  */
+@Data
 @Entity
 @Table(name="perfil_usuario")
 @NamedQuery(name="PerfilUsuario.findAll", query="SELECT p FROM PerfilUsuario p")
@@ -36,56 +39,5 @@ public class PerfilUsuario implements Serializable {
 	@OneToOne
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
-
-	public PerfilUsuario() {
-	}
-
-	public Integer getIdPerfilUsuario() {
-		return this.idPerfilUsuario;
-	}
-
-	public void setIdPerfilUsuario(Integer idPerfilUsuario) {
-		this.idPerfilUsuario = idPerfilUsuario;
-	}
-
-	public Timestamp getDataHoraInclusao() {
-		return this.dataHoraInclusao;
-	}
-
-	public void setDataHoraInclusao(Timestamp dataHoraInclusao) {
-		this.dataHoraInclusao = dataHoraInclusao;
-	}
-
-	public String getDescEmail() {
-		return this.descEmail;
-	}
-
-	public void setDescEmail(String descEmail) {
-		this.descEmail = descEmail;
-	}
-
-	public String getDescNome() {
-		return this.descNome;
-	}
-
-	public void setDescNome(String descNome) {
-		this.descNome = descNome;
-	}
-
-	public String getDescSobrenome() {
-		return this.descSobrenome;
-	}
-
-	public void setDescSobrenome(String descSobrenome) {
-		this.descSobrenome = descSobrenome;
-	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 }
