@@ -53,11 +53,11 @@ public class Usuario implements Serializable {
 	private List<GrupoPermissao> grupoPermissaos;
 
 	//bi-directional many-to-one association to Chamado
-	@OneToMany(mappedBy="usuario1")
-	private List<Chamado> chamados1;
+	@OneToMany(mappedBy="usuarioResponsavel")
+	private List<Chamado> chamadosUsuarioResponsavel;
 
 	//bi-directional many-to-one association to Chamado
-	@OneToMany(mappedBy="usuario2")
-	private List<Chamado> chamados2;
+	@OneToMany(mappedBy="usuarioSolicitante")
+	private List<Chamado> chamadosUsuarioSolicitante;
 
 }
