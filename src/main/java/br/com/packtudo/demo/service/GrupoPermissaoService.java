@@ -1,5 +1,7 @@
 package br.com.packtudo.demo.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,10 @@ public class GrupoPermissaoService {
 		
 		
 		return grupoPermissaoDTO;
+	}
+
+	public List<GrupoPermissao> findAll() {		
+		return grupoPermissaoRepository.findAll();
 	}
 
 }
