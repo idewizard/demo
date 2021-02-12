@@ -1,6 +1,8 @@
 package br.com.packtudo.demo.model.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -19,13 +21,17 @@ public class GrupoPermissao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Getter
+	@Setter
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="cod_grupo_permissao")
+	@Column(name="cod_grupo_permissao")	
 	private short codGrupoPermissao;
 
 	@Column(name="data_hora_inclusao")
 	private Timestamp dataHoraInclusao;
-
+	
+	@Getter
+	@Setter
 	@Column(name="desc_grupo_permissao")
 	private String descGrupoPermissao;
 
@@ -45,4 +51,6 @@ public class GrupoPermissao implements Serializable {
 			}
 		)
 	private List<FilaChamado> filaChamados;
+
+
 }
