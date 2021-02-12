@@ -1,7 +1,5 @@
 package br.com.packtudo.demo.model.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -15,7 +13,6 @@ import java.util.List;
 @Entity
 @Table(name="fila_chamado")
 @NamedQuery(name="FilaChamado.findAll", query="SELECT f FROM FilaChamado f")
-@Data
 public class FilaChamado implements Serializable {
 	private static final long serialVersionUID = 1L;
 

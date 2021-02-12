@@ -1,6 +1,8 @@
 package br.com.packtudo.demo.model.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -13,33 +15,44 @@ import java.util.List;
  * 
  */
 @Entity
-@Data
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Getter
+	@Setter
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_usuario")
 	private Integer idUsuario;
 
+	@Getter
+	@Setter
 	@Column(name="bol_ativo")
 	private byte bolAtivo;
 
+	@Getter
+	@Setter
 	@Column(name="data_hora_inclusao")
 	private Timestamp dataHoraInclusao;
 
+	@Getter
+	@Setter
 	@Column(name="desc_login")
 	private String descLogin;
 
+	@Getter
+	@Setter
 	@Column(name="desc_senha")
 	private String descSenha;
 
-	//bi-directional one-to-one association to PerfilUsuario
+	@Getter
+	@Setter
 	@OneToOne(mappedBy="usuario")
 	private PerfilUsuario perfilUsuario;
 
-	//bi-directional many-to-many association to GrupoPermissao
+	@Getter
+	@Setter
 	@ManyToMany
 	@JoinTable(
 		name="usuario_grupo_permissao"
@@ -52,11 +65,13 @@ public class Usuario implements Serializable {
 		)
 	private List<GrupoPermissao> grupoPermissaos;
 
-	//bi-directional many-to-one association to Chamado
+	@Getter
+	@Setter
 	@OneToMany(mappedBy="usuarioResponsavel")
 	private List<Chamado> chamadosUsuarioResponsavel;
 
-	//bi-directional many-to-one association to Chamado
+	@Getter
+	@Setter
 	@OneToMany(mappedBy="usuarioSolicitante")
 	private List<Chamado> chamadosUsuarioSolicitante;
 

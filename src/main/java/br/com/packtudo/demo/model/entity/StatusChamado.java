@@ -12,7 +12,6 @@ import java.util.List;
  * 
  */
 @Entity
-@Data
 @Table(name="status_chamado")
 @NamedQuery(name="StatusChamado.findAll", query="SELECT s FROM StatusChamado s")
 public class StatusChamado implements Serializable {

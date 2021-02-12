@@ -15,7 +15,6 @@ import java.util.List;
 @Entity
 @Table(name="grupo_permissao")
 @NamedQuery(name="GrupoPermissao.findAll", query="SELECT g FROM GrupoPermissao g")
-@Data
 public class GrupoPermissao implements Serializable {
 	private static final long serialVersionUID = 1L;
 

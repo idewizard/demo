@@ -11,7 +11,6 @@ import java.sql.Timestamp;
  * The persistent class for the perfil_usuario database table.
  * 
  */
-@Data
 @Entity
 @Table(name="perfil_usuario")
 @NamedQuery(name="PerfilUsuario.findAll", query="SELECT p FROM PerfilUsuario p")

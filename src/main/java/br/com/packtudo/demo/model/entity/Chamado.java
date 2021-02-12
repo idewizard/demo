@@ -13,8 +13,6 @@ import java.sql.Timestamp;
  */
 @Entity
 @NamedQuery(name="Chamado.findAll", query="SELECT c FROM Chamado c")
-
-@Data
 public class Chamado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
