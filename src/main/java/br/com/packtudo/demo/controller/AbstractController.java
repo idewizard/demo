@@ -29,4 +29,9 @@ public class AbstractController<E, D> {
     protected List<D> mapToListDTO(List<E> listEntitys){
         return listEntitys.stream().map(this::mapToDTO).collect(Collectors.toList());
     }
+
+    protected E mapToEntity(Object object){
+        return modelMapper.map(object, typeEntity);
+    }
+
 }
