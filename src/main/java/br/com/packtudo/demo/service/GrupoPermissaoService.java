@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.com.packtudo.demo.bean.ModelMapperBean;
 import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
 import br.com.packtudo.demo.repository.GrupoPermissaoRepository;
@@ -12,6 +13,9 @@ public class GrupoPermissaoService {
 
 	@Autowired
 	private GrupoPermissaoRepository grupoPermissaoRepository;
+	
+	@Autowired
+	private ModelMapperBean modelMapperBean;
 	
 	@Transactional
 	public GrupoPermissaoDTO save(GrupoPermissao grupoPermissao) {
@@ -23,14 +27,18 @@ public class GrupoPermissaoService {
 			
 		}
 		
-		if(grupoPermissao.getCodGrupoPermissao() == 0) {
+		if(grupoPermissao.getCodGrupoPermissao() == 0) {		
 			
 			grupoPermissao.setCodGrupoPermissao(
 					grupoPermissaoRepository.consultaMaxCodGrupoPermissao());
 			
 		}
 		
-		return null;
+		GrupoPermissaoDTO grupoPermissaoDTO = new GrupoPermissaoDTO(); 
+		modelMapperBean.modelMapper().map(grupoPermissao, grupoPermissaoDTO);
+		
+		
+		return grupoPermissaoDTO;
 	}
 
 }
