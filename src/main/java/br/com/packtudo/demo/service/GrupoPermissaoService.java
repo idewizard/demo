@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.packtudo.demo.bean.ModelMapperBean;
 import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
-import br.com.packtudo.demo.repository.GrupoPermissaoRepository;
+import br.com.packtudo.demo.repository.interfaces.GrupoPermissaoRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GrupoPermissaoService {
 
 	@Autowired

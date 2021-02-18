@@ -5,10 +5,9 @@ import br.com.packtudo.demo.model.entity.Usuario;
 import br.com.packtudo.demo.model.exceptions.PropertyNullException;
 import br.com.packtudo.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,12 +24,23 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO> {
     }
 
     @PostMapping
-    public UsuarioDTO add(UsuarioDTO dto){
-        try {
-            return mapToDTO(usuarioService.add(mapToEntity(dto)));
-        } catch (PropertyNullException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public ResponseEntity<UsuarioDTO> add(UsuarioDTO dto){
+        Usuario usuario = mapToEntity(dto);
+        Usuario usuarioAdicionado = usuarioService.add(usuario);
+        UsuarioDTO usuarioDTO = mapToDTO(usuarioAdicionado);
+        return responseSucesso(usuarioDTO);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Integer> deletePost(@PathVariable Integer id) {
+
+        var isRemoved = usuarioService.delete(id);
+
+        if (!isRemoved) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return responseAnySucesso(id);
+    }
+
 }

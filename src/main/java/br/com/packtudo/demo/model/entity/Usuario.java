@@ -50,7 +50,7 @@ public class Usuario implements Serializable {
 
 	@Getter
 	@Setter
-	@OneToOne(mappedBy="usuario")
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.REMOVE)
 	private PerfilUsuario perfilUsuario;
 
 	@Getter
