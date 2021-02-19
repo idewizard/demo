@@ -47,6 +47,10 @@ public class AbstractController<E, D> {
         return ResponseEntity.ok(dto);
     }
 
+    protected ResponseEntity responseNotFound() {
+        return ResponseEntity.notFound().build();
+    }
+
     protected ResponseEntity responseAnySucesso(Object value) {
         return ResponseEntity.ok(value);
     }

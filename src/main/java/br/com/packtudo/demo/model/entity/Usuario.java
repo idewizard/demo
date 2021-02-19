@@ -1,12 +1,11 @@
 package br.com.packtudo.demo.model.entity;
 
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -40,7 +39,6 @@ public class Usuario implements Serializable {
 	@Getter
 	@Setter
 	@Column(name="desc_login")
-	@NotBlank(message = "Campo login é obrigatório")
 	private String descLogin;
 
 	@Getter

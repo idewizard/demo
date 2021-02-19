@@ -25,15 +25,11 @@ public class UsuarioRepositoryExtension {
         return usuarioRepository.save(entity);
     }
 
-    public void deleteById(Integer id) {
-        usuarioRepository.deleteById(id);
-    }
-
     public List<Usuario> findAll() {
         return usuarioRepository.findAll();
     }
 
-    public boolean checarExistencia(Integer id) {
+    public boolean checarExistencia(String descLogin) {
 
         final CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -41,9 +37,13 @@ public class UsuarioRepositoryExtension {
         final Root<Usuario> from = cq.from(Usuario.class);
 
         cq.select(cb.count(from));
-        cq.where(cb.equal(from.get("idUsuario"), id));
+        cq.where(cb.equal(from.get("descLogin"), descLogin));
 
         final TypedQuery<Long> tq = em.createQuery(cq);
         return tq.getSingleResult() > 0;
+    }
+
+    public void deleteByDescLogin(String descLogin) {
+        usuarioRepository.deleteByDescLogin(descLogin);
     }
 }
