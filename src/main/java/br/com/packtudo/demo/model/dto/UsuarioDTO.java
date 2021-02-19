@@ -11,7 +11,7 @@ public class UsuarioDTO {
 
     private short bolAtivo;
 
-    @NotBlank(message = "Campo login é obrigatório")
+    @NotBlank(message = "Campo login é de preenchimento obrigatório.")
     private String descLogin;
 
     @JsonIgnoreProperties("usuario")
