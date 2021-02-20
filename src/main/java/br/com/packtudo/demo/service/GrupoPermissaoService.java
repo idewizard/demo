@@ -3,6 +3,7 @@ package br.com.packtudo.demo.service;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,15 +23,8 @@ public class GrupoPermissaoService {
 	private ModelMapperBean modelMapperBean;
 	
 	@Transactional
-	public GrupoPermissaoDTO save(GrupoPermissao grupoPermissao) {
-		
-		if(grupoPermissao.getDescGrupoPermissao() == null) {
-
-			//TODO O QUE FAZER QUANDO NÃO TIVER A DESC
-			//DEU MERDA, FAZ EXCECAO
-			
-		}
-		
+	public GrupoPermissaoDTO save(@Valid GrupoPermissao grupoPermissao) {
+	
 		if(grupoPermissao.getCodGrupoPermissao() == 0) {		
 			
 			grupoPermissao.setCodGrupoPermissao(

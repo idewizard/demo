@@ -5,12 +5,18 @@ import lombok.Data;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 public class GrupoPermissaoDTO {
 
+	@NotBlank ( message = "Campo Codigo é de preenchimento obrigatório")
 	private short codGrupoPermissao;
 	private Timestamp dataHoraInclusao;
+	
+	@NotBlank ( message = "Campo Descrição é de preenchimento obrigatório")
 	private String descGrupoPermissao;
 	private List<UsuarioDTO> usuarios;
 	private List<FilaChamadoDTO> filaChamados;
+	
 }
