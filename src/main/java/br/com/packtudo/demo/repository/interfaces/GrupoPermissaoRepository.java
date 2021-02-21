@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
 
 @Repository
-public interface GrupoPermissaoRepository extends JpaRepository<GrupoPermissao, Long>{
+public interface GrupoPermissaoRepository extends JpaRepository<GrupoPermissao, Short>{
 
 	
 	// TODO: TRANSFORMAR EM CRYTIRA BUILDER JPA

@@ -36,20 +36,16 @@ public class GrupoPermissaoService {
 	}
 
 	public GrupoPermissao findById(GrupoPermissao grupoPermissao) {
-		return grupoPermissaoRepository.findById((long) grupoPermissao.getCodGrupoPermissao()).orElse(grupoPermissao);
+		return grupoPermissaoRepository.findById(grupoPermissao.getCodGrupoPermissao()).orElse(grupoPermissao);
 	}
 	
 	
 	public boolean deleteGrupoPermissao(GrupoPermissao grupoPermissao) {
-		
-				
 		if (!grupoPermissaoRepository.checaExistencia(grupoPermissao.getCodGrupoPermissao())) {
 			return false;
-		}{
-			grupoPermissaoRepository.deleteById( (long) grupoPermissao.getCodGrupoPermissao());;
-			return true;
 		}
-		
+		grupoPermissaoRepository.deleteById(grupoPermissao.getCodGrupoPermissao());;
+		return true;
 	}
 	
 }
