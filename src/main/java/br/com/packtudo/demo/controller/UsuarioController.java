@@ -3,10 +3,8 @@ package br.com.packtudo.demo.controller;
 import br.com.packtudo.demo.model.dto.NewUsuarioDTO;
 import br.com.packtudo.demo.model.dto.UsuarioDTO;
 import br.com.packtudo.demo.model.entity.Usuario;
-import br.com.packtudo.demo.model.exceptions.PropertyNullException;
 import br.com.packtudo.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
