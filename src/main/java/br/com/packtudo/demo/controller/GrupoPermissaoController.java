@@ -2,6 +2,7 @@ package br.com.packtudo.demo.controller;
 
 import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
+import br.com.packtudo.demo.model.exceptions.EntidadeNaoEncontradaException;
 import br.com.packtudo.demo.service.GrupoPermissaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +29,14 @@ public class GrupoPermissaoController extends AbstractController<GrupoPermissao,
 		return responseSucesso(mapToDTO(grupoPermissaoService.save(mapToEntity(dto))));
 	}
 
-	@GetMapping
-	public ResponseEntity<GrupoPermissaoDTO> findById(GrupoPermissaoDTO dto){		
-		return responseSucesso(mapToDTO(grupoPermissaoService.findById(mapToEntity(dto))));
+	@GetMapping("/{codigo}")
+	public ResponseEntity<GrupoPermissaoDTO> findById(Short codGrupoPermissao){
+		try {
+			return responseSucesso(mapToDTO(grupoPermissaoService.findById(codGrupoPermissao)));
+		} catch (EntidadeNaoEncontradaException e) {
+			getLogger().error("Entidade não localizada para o codGrupoPermissao %s".formatted(codGrupoPermissao), e);
+			return responseNotFound();
+		}
 	}
 	
 	@SuppressWarnings("unchecked")

@@ -15,8 +15,8 @@ public interface GrupoPermissaoRepository extends JpaRepository<GrupoPermissao, 
 	@Query( value = "SELECT MAX(COD_GRUPO_PERMISSAO) FROM GRUPO_PERMISSAO" , nativeQuery = true)
 	short consultaMaxCodGrupoPermissao();
 
-	@Query( value = "delete from grupo_permissao where cod_grupo_permissao = :id")
-	boolean checaExistencia(short id);
+	@Query( value = "delete from GrupoPermissao where codGrupoPermissao = :id")
+	boolean checaExistencia(Short id);
 	
 	
 	

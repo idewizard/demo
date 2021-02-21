@@ -1,6 +1,7 @@
 package br.com.packtudo.demo.service;
 
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
+import br.com.packtudo.demo.model.exceptions.EntidadeNaoEncontradaException;
 import br.com.packtudo.demo.repository.interfaces.GrupoPermissaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,16 +34,15 @@ public class GrupoPermissaoService {
 		return grupoPermissaoRepository.findAll();
 	}
 
-	public GrupoPermissao findById(GrupoPermissao grupoPermissao) {
-		return grupoPermissaoRepository.findById(grupoPermissao.getCodGrupoPermissao()).orElse(grupoPermissao);
+	public GrupoPermissao findById(Short codGrupoPermissao) throws EntidadeNaoEncontradaException {
+		return grupoPermissaoRepository.findById(codGrupoPermissao).orElseThrow(EntidadeNaoEncontradaException::new);
 	}
-	
-	
+
 	public boolean deleteGrupoPermissao(GrupoPermissao grupoPermissao) {
 		if (!grupoPermissaoRepository.checaExistencia(grupoPermissao.getCodGrupoPermissao())) {
 			return false;
 		}
-		grupoPermissaoRepository.deleteById(grupoPermissao.getCodGrupoPermissao());;
+		grupoPermissaoRepository.deleteById(grupoPermissao.getCodGrupoPermissao());
 		return true;
 	}
 	
