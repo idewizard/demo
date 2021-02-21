@@ -1,15 +1,13 @@
 package br.com.packtudo.demo.service;
 
-import java.util.List;
+import br.com.packtudo.demo.model.entity.GrupoPermissao;
+import br.com.packtudo.demo.repository.interfaces.GrupoPermissaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import br.com.packtudo.demo.model.entity.GrupoPermissao;
-import br.com.packtudo.demo.repository.interfaces.GrupoPermissaoRepository;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class GrupoPermissaoService {

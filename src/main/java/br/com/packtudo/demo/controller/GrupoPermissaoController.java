@@ -1,18 +1,16 @@
 package br.com.packtudo.demo.controller;
 
-import java.util.List;
-
+import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
+import br.com.packtudo.demo.model.entity.GrupoPermissao;
+import br.com.packtudo.demo.service.GrupoPermissaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
-import br.com.packtudo.demo.model.entity.GrupoPermissao;
-import br.com.packtudo.demo.service.GrupoPermissaoService;
+import java.util.List;
 
 @RestController
 public class GrupoPermissaoController extends AbstractController<GrupoPermissao, GrupoPermissaoDTO> {

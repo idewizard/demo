@@ -1,10 +1,9 @@
 package br.com.packtudo.demo.repository.interfaces;
 
+import br.com.packtudo.demo.model.entity.GrupoPermissao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import br.com.packtudo.demo.model.entity.GrupoPermissao;
 
 @Repository
 public interface GrupoPermissaoRepository extends JpaRepository<GrupoPermissao, Short>{

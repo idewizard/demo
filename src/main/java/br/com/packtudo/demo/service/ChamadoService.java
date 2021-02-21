@@ -4,6 +4,7 @@ import br.com.packtudo.demo.model.entity.Chamado;
 import br.com.packtudo.demo.repository.impl.ChamadoRepositoryExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service

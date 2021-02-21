@@ -1,7 +1,5 @@
 package br.com.packtudo.demo.controller;
 
-import br.com.packtudo.demo.model.dto.UsuarioDTO;
-import br.com.packtudo.demo.model.exceptions.PropertyNullException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
