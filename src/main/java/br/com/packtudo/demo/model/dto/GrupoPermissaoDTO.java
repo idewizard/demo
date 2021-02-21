@@ -2,10 +2,9 @@ package br.com.packtudo.demo.model.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 import java.util.List;
-
-import javax.validation.constraints.NotBlank;
 
 @Data
 public class GrupoPermissaoDTO {

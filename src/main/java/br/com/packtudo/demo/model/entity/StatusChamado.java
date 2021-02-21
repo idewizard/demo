@@ -1,9 +1,7 @@
 package br.com.packtudo.demo.model.entity;
 
-import lombok.Data;
-
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 

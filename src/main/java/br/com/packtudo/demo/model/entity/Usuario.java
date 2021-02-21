@@ -4,8 +4,8 @@ package br.com.packtudo.demo.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
