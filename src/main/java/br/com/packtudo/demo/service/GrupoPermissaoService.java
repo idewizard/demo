@@ -7,8 +7,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.packtudo.demo.bean.ModelMapperBean;
-import br.com.packtudo.demo.model.dto.GrupoPermissaoDTO;
 import br.com.packtudo.demo.model.entity.GrupoPermissao;
 import br.com.packtudo.demo.repository.interfaces.GrupoPermissaoRepository;
 import org.springframework.stereotype.Service;
@@ -19,11 +17,8 @@ public class GrupoPermissaoService {
 	@Autowired
 	private GrupoPermissaoRepository grupoPermissaoRepository;
 	
-	@Autowired
-	private ModelMapperBean modelMapperBean;
-	
 	@Transactional
-	public GrupoPermissaoDTO save(@Valid GrupoPermissao grupoPermissao) {
+	public GrupoPermissao save(@Valid GrupoPermissao grupoPermissao) {
 	
 		if(grupoPermissao.getCodGrupoPermissao() == 0) {		
 			
@@ -32,15 +27,29 @@ public class GrupoPermissaoService {
 			
 		}
 		
-		GrupoPermissaoDTO grupoPermissaoDTO = new GrupoPermissaoDTO(); 
-		modelMapperBean.modelMapper().map(grupoPermissao, grupoPermissaoDTO);
+		return grupoPermissaoRepository.save(grupoPermissao);
 		
-		
-		return grupoPermissaoDTO;
 	}
 
 	public List<GrupoPermissao> findAll() {		
 		return grupoPermissaoRepository.findAll();
 	}
 
+	public GrupoPermissao findById(GrupoPermissao grupoPermissao) {
+		return grupoPermissaoRepository.findById((long) grupoPermissao.getCodGrupoPermissao()).orElse(grupoPermissao);
+	}
+	
+	
+	public boolean deleteGrupoPermissao(GrupoPermissao grupoPermissao) {
+		
+				
+		if (!grupoPermissaoRepository.checaExistencia(grupoPermissao.getCodGrupoPermissao())) {
+			return false;
+		}{
+			grupoPermissaoRepository.deleteById( (long) grupoPermissao.getCodGrupoPermissao());;
+			return true;
+		}
+		
+	}
+	
 }

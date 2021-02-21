@@ -9,6 +9,7 @@ import br.com.packtudo.demo.model.entity.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 
+	//JPQL 
     @Query("delete from Usuario where desclogin = :descLogin")
     void deleteByDescLogin(String descLogin);
 }
