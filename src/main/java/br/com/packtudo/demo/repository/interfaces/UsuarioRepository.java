@@ -11,4 +11,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	//JPQL 
     @Query("delete from Usuario where desclogin = :descLogin")
     void deleteByDescLogin(String descLogin);
+    
+    Usuario findByDescLogin(String descLogin);
+    
+    Usuario findByBolAtivo(short bolAtivo);
 }

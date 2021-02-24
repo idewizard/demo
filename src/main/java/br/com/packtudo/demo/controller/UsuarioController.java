@@ -3,12 +3,15 @@ package br.com.packtudo.demo.controller;
 import br.com.packtudo.demo.model.dto.NewUsuarioDTO;
 import br.com.packtudo.demo.model.dto.UsuarioDTO;
 import br.com.packtudo.demo.model.entity.Usuario;
+import br.com.packtudo.demo.repository.interfaces.UsuarioRepository;
 import br.com.packtudo.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -18,9 +21,14 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO> {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private UsuarioRepository usuarioR;
+    
+    @CrossOrigin
     @GetMapping
     public List<UsuarioDTO> findAll(){
-        return mapToListDTO(usuarioService.findAll());
+    	return mapToListDTO(Arrays.asList(usuarioR.findByDescLogin("bbbbbbbbbbbbbbb")));
+        //return mapToListDTO(usuarioService.findAll());
     }
 
     @PostMapping
