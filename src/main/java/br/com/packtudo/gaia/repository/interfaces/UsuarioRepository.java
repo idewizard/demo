@@ -1,6 +1,6 @@
-package br.com.packtudo.demo.repository.interfaces;
+package br.com.packtudo.gaia.repository.interfaces;
 
-import br.com.packtudo.demo.model.entity.Usuario;
+import br.com.packtudo.gaia.model.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
